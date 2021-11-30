@@ -39,7 +39,7 @@ hashDirExe () {
         COUNT=0 
 	for f in $(ls $1) ;  
 	        do 
-	                echo ` $HASH $f > "$2_$(date +%Y%m%d).txt" ` 
+	                echo ` $HASH $1/$f > "$2_$(date +%Y%m%d).txt" ` 
 		        let COUNT++ 
 	        done 
         echo "Number of files hashed: $COUNT"
