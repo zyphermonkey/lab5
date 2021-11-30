@@ -46,7 +46,7 @@ hashDirExe () {
 } 
 
 #Check file 
-if [ -e $1  ]; then 
+if [ -f $1  ]; then 
 	# Continue 
 	decideHash
 	outputFile
