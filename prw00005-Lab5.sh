@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 #Determines which hash type to usebased on user case input. 
 decideHash () {
