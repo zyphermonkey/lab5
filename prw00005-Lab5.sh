@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 #Determines which hash type to usebased on user case input. 
 decideHash () {
@@ -37,16 +37,20 @@ hashFileExe () {
 #It also counts the number of files hashed and prints it when complete. 
 hashDirExe () {
         COUNT=0 
-	for f in $(ls $1) ;  
-	        do 
-	                echo ` $HASH $f > "$2_$(date +%Y%m%d).txt" ` 
-		        let COUNT++ 
-	        done 
+	for f in $(ls $1) ; do 
+		if [ $COUNT -eq 0 ]; then	
+	               echo ` $HASH $1/$f > "$2_$(date +%Y%m%d).txt" ` 
+		else
+		       echo ` $HASH $1/$f >> "$2_$(date +%Y%m%d).txt" `
+		fi
+
+		let COUNT++ 
+	done 
         echo "Number of files hashed: $COUNT"
 } 
 
 #Check file 
-if [ -e $1  ]; then 
+if [ -f $1  ]; then 
 	# Continue 
 	decideHash
 	outputFile
